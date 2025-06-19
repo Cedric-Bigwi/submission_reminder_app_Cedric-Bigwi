@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Ask for user environment folder
-echo "Enter your environment name (submission_reminder_{YourName}):"
-read env_name
+# Ask for name only
+echo "Enter your name:"
+read name
+
+# Automatically build full environment name
+env_name="submission_reminder_${name}"
 
 # Ask for new assignment name
 echo "Enter new assignment name:"
@@ -13,3 +16,4 @@ sed -i "2s/.*/ASSIGNMENT=${new_assignment}/" ${env_name}/config/config.env
 
 # Run startup.sh
 bash ${env_name}/startup.sh
+
